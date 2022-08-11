@@ -1,7 +1,7 @@
 public class Planet{
 	public double xxPos,yyPos,xxVel,yyVel,mass;
 	public String imgFileName;
-	public static final double g=6.67e-11;
+	private static final double G=6.67e-11;
 	public Planet(double xP, double yP, double xV,
               double yV, double m, String img){
 		/** innitial a planet */
@@ -27,7 +27,7 @@ public class Planet{
     }
     public double calcForceExertedBy(Planet p){
     	/** calculate the force between two planets*/
-    	return g*p.mass*mass/calcDistance(p)/calcDistance(p);
+    	return G*p.mass*mass/calcDistance(p)/calcDistance(p);
     }
     public double calcForceExertedByX(Planet p){
     	/** calculate the force between two planets in x*/
