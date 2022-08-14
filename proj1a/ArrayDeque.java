@@ -30,44 +30,44 @@ public class ArrayDeque<T> {
 
     private void resizegrow() {
         /** resize a new array when old array is too small or too big*/
-        T[] new_array = (T[]) new Object[length * 2];
+        T[] newarray = (T[]) new Object[length * 2];
         int ptr1 = first;
         int ptr2 = length;
         while (ptr1 != last) {
-            new_array[ptr2] = array[ptr1];
+            newarray[ptr2] = array[ptr1];
             ptr1 = plusone(ptr1, length);
             ptr2 = plusone(ptr2, length * 2);
         }
         first = length;
         last = ptr2;
-        array = new_array;
+        array = newarray;
         length *= 2;
     }
 
     private void resizeshrink() {
-        T[] new_array = (T[]) new Object[length / 2];
+        T[] newarray = (T[]) new Object[length / 2];
         int ptr1 = first;
         int ptr2 = length / 4;
         while (ptr1 != last) {
-            new_array[ptr2] = array[ptr1];
+            newarray[ptr2] = array[ptr1];
             ptr1 = plusone(ptr1, length);
             ptr2 = plusone(ptr2, length / 2);
         }
         first = length / 4;
         last = ptr2;
-        array = new_array;
+        array = newarray;
         length /= 2;
     }
 
     public boolean isEmpty() {
-        if (first == last) {
+        if (size == 0) {
             return true;
         }
         return false;
     }
 
     public void addFirst(T item) {
-        if ((last - first + 1) % length == 0) {
+        if (plusone(last,length)==first) {
             resizegrow();
         }
         first = plusone(first, length);
@@ -76,7 +76,7 @@ public class ArrayDeque<T> {
     }
 
     public void addLast(T item) {
-        if ((last - first + 1) % length == 0) {
+        if (plusone(last,length)==first) {
             resizegrow();
         }
         last = plusone(last, length);
@@ -98,6 +98,9 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
+        if (size == 0) {
+            return null;
+        }
         T i = array[first];
         first = minusone(first);
         size -= 1;
@@ -108,6 +111,9 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
+        if (size == 0) {
+            return null;
+        }
         T i = array[last];
         last = minusone(last);
         size -= 1;
