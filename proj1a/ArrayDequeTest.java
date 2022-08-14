@@ -66,19 +66,23 @@ public class ArrayDequeTest {
 
         System.out.println("Running add/remove test.");
 
-        System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
-
         ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
         // should be empty 
         boolean passed = checkEmpty(true, lld1.isEmpty());
 
-        lld1.addFirst(10);
-        // should not be empty 
-        passed = checkEmpty(false, lld1.isEmpty()) && passed;
 
-        lld1.removeFirst();
-        // should be empty 
-        passed = checkEmpty(true, lld1.isEmpty()) && passed;
+        lld1.addFirst(0);
+        lld1.printDeque();
+        lld1.addFirst(1);
+        lld1.printDeque();
+        lld1.addFirst(2);
+        int i=0;
+        /** System.out.println(lld1.get(0)); */
+        lld1.printDeque();
+        i= lld1.removeFirst();
+        i= lld1.removeFirst();
+        i= lld1.removeFirst();
+        passed=checkSize(0,i);
 
         printTestStatus(passed);
 

@@ -15,7 +15,7 @@ public class ArrayDeque<T> {
 
     private int minusone(int index) {
         if (index == 0) {
-            return array.length - 1;
+            return length - 1;
         }
         return index - 1;
     }
@@ -29,7 +29,7 @@ public class ArrayDeque<T> {
     }
 
     private void resizegrow() {
-        /** resize a new array when old array is too small or too big*/
+        /** resize a new array when old array is too big*/
         T[] newarray = (T[]) new Object[length * 2];
         int ptr1 = first;
         int ptr2 = length;
@@ -70,7 +70,7 @@ public class ArrayDeque<T> {
         if (plusone(last,length)==first) {
             resizegrow();
         }
-        first = plusone(first, length);
+        first = minusone(first);
         array[first] = item;
         size += 1;
     }
@@ -102,7 +102,7 @@ public class ArrayDeque<T> {
             return null;
         }
         T i = array[first];
-        first = minusone(first);
+        first = plusone(first,length);
         size -= 1;
         if (size <= length / 2) {
             resizeshrink();
