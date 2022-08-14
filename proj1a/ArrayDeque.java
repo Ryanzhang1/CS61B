@@ -67,20 +67,20 @@ public class ArrayDeque<T> {
     }
 
     public void addFirst(T item) {
-        if (plusone(last,length)==first) {
+        if (plusone(last, length) == first) {
             resizegrow();
         }
-        first = minusone(first);
         array[first] = item;
+        first = minusone(first);
         size += 1;
     }
 
     public void addLast(T item) {
-        if (plusone(last,length)==first) {
+        if (plusone(last, length) == first) {
             resizegrow();
         }
-        last = plusone(last, length);
         array[last] = item;
+        last = plusone(last, length);
         size += 1;
     }
 
@@ -102,7 +102,7 @@ public class ArrayDeque<T> {
             return null;
         }
         T i = array[first];
-        first = plusone(first,length);
+        first = plusone(first, length);
         size -= 1;
         if (size <= length / 2) {
             resizeshrink();
@@ -114,8 +114,8 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
-        T i = array[last];
         last = minusone(last);
+        T i = array[last];
         size -= 1;
         if (size <= length / 2) {
             resizeshrink();
@@ -128,7 +128,7 @@ public class ArrayDeque<T> {
             return null;
         }
         int i = first;
-        while (index >= 0) {
+        while (index > 1) {
             i = plusone(i, length);
             index -= 1;
         }

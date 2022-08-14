@@ -71,17 +71,16 @@ public class ArrayDequeTest {
         boolean passed = checkEmpty(true, lld1.isEmpty());
 
 
-        lld1.addFirst(0);
+        lld1.addLast(0);
+        lld1.addLast(3);
+        lld1.addLast(4);
+        lld1.addLast(5);
+        lld1.addLast(6);
+        int i=5;
+        System.out.println(lld1.get(1));
         lld1.printDeque();
-        lld1.addFirst(1);
-        lld1.printDeque();
-        lld1.addFirst(2);
-        int i=0;
-        /** System.out.println(lld1.get(0)); */
-        lld1.printDeque();
-        i= lld1.removeFirst();
-        i= lld1.removeFirst();
-        i= lld1.removeFirst();
+        i= lld1.removeLast();
+        i= lld1.removeLast();
         passed=checkSize(0,i);
 
         printTestStatus(passed);
