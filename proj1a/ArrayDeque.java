@@ -127,8 +127,8 @@ public class ArrayDeque<T> {
             return null;
         }
         int i = first;
-        for(int j=0;j<index;j++){
-            i=plusone(i,length);
+        for (int j = 0; j < index; j++) {
+            i = plusone(i, length);
         }
         return array[i];
     }
