@@ -1,4 +1,6 @@
-/** Performs some basic linked list tests. */
+/**
+ * Performs some basic linked list tests.
+ */
 public class ArrayDequeTest {
 
     /* Utility method for printing out empty checks. */
@@ -29,10 +31,12 @@ public class ArrayDequeTest {
         }
     }
 
-    /** Adds a few things to the list, checking isEmpty() and size() are correct, 
-     * finally printing the results. 
-     *
-     * && is the "and" operation. */
+    /**
+     * Adds a few things to the list, checking isEmpty() and size() are correct,
+     * finally printing the results.
+     * <p>
+     * && is the "and" operation.
+     */
     public static void addIsEmptySizeTest() {
         System.out.println("Running add/isEmpty/Size test.");
         System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
@@ -61,7 +65,9 @@ public class ArrayDequeTest {
 
     }
 
-    /** Adds an item, then removes an item, and ensures that dll is empty afterwards. */
+    /**
+     * Adds an item, then removes an item, and ensures that dll is empty afterwards.
+     */
     public static void addRemoveTest() {
 
         System.out.println("Running add/remove test.");
@@ -71,15 +77,16 @@ public class ArrayDequeTest {
         boolean passed = checkEmpty(true, lld1.isEmpty());
 
 
-        for(int i=0;i<=9;i++){
-            lld1.addFirst(i);
-        }
-
-        int i=5;
-        System.out.println(lld1.get(4));
+        lld1.addFirst(0);
+        lld1.addFirst(2);
+        lld1.removeLast();
+        lld1.addLast(4);
+        lld1.addLast(6);
+        int i = 5;
+        System.out.println(lld1.get(1));
         lld1.printDeque();
-        i= lld1.removeFirst();
-        passed=checkSize(9,i);
+        i = lld1.removeFirst();
+        passed = checkSize(9, i);
 
         printTestStatus(passed);
 
@@ -90,4 +97,4 @@ public class ArrayDequeTest {
         addIsEmptySizeTest();
         addRemoveTest();
     }
-} 
+}

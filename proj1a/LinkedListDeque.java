@@ -19,7 +19,7 @@ public class LinkedListDeque<T> {
         sentinel.prev = sentinel;
     }
 
-    public LinkedListDeque(LinkedListDeque other) {
+   /** public LinkedListDeque(LinkedListDeque other) {
         size = 0;
         sentinel = new TNode(null);
         sentinel.next = sentinel;
@@ -27,7 +27,7 @@ public class LinkedListDeque<T> {
         for (int i = 0; i < other.size(); i++) {
             addLast((T) other.get(i));
         }
-    }
+    } */
 
     public void addFirst(T x) {
         TNode p = new TNode(x);

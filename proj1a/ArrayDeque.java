@@ -104,7 +104,7 @@ public class ArrayDeque<T> {
         T i = array[first];
         first = plusone(first, length);
         size -= 1;
-        if (size <= length / 4&&length>=16) {
+        if (size <= length / 4 && length >= 16) {
             resizeshrink();
         }
         return i;
@@ -116,32 +116,32 @@ public class ArrayDeque<T> {
         }
         last = minusone(last);
         size -= 1;
-        if (size <= length / 4&&length>=16) {
+        if (size <= length / 4 && length >= 16) {
             resizeshrink();
         }
         return array[last];
     }
 
     public T get(int index) {
-        if (index > size) {
+        if (index >= size) {
             return null;
         }
         int i = first;
-        while (index > 1) {
+        while (index > 0) {
             i = plusone(i, length);
             index -= 1;
         }
         return array[i];
     }
 
-    public ArrayDeque(ArrayDeque other) {
-        T[] array = (T[]) new Object[other.length];
-        length = other.length;
-        size = other.size;
-        first = other.first;
-        last = other.last;
-        while (other.size != 0) {
-            addLast((T) other.removeFirst());
-        }
-    }
+    /**public ArrayDeque(ArrayDeque other) {
+     T[] array = (T[]) new Object[other.length];
+     length = other.length;
+     size = other.size;
+     first = other.first;
+     last = other.last;
+     while (other.size != 0) {
+     addLast((T) other.removeFirst());
+     }
+     }*/
 }
