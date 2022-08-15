@@ -39,8 +39,6 @@ public class ArrayDequeTest {
      */
     public static void addIsEmptySizeTest() {
         System.out.println("Running add/isEmpty/Size test.");
-        System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
-
         ArrayDeque<String> lld1 = new ArrayDeque<String>();
 
         boolean passed = checkEmpty(true, lld1.isEmpty());
@@ -78,15 +76,32 @@ public class ArrayDequeTest {
 
 
         lld1.addFirst(0);
+        lld1.removeFirst();
         lld1.addFirst(2);
+        lld1.addLast(3);
+        lld1.get(0);
+        lld1.addLast(5);
+        lld1.removeFirst();
         lld1.removeLast();
-        lld1.addLast(4);
-        lld1.addLast(6);
-        int i = 5;
-        System.out.println(lld1.get(1));
+        lld1.addLast(8);
+        lld1.addFirst(9);
+        lld1.addFirst(10);
+        lld1.addLast(11);
+        lld1.addFirst(12);
+        lld1.addLast(13);
+        lld1.addFirst(14);
+        lld1.removeFirst();
+        lld1.addLast(16);
+        lld1.addFirst(17);
+        lld1.removeFirst();
+        lld1.removeLast();
+        lld1.removeFirst();
+        lld1.removeLast();
         lld1.printDeque();
-        i = lld1.removeFirst();
-        passed = checkSize(9, i);
+        lld1.get(4);
+        System.out.println(lld1.removeLast());
+        //int i=lld1.removeLast();
+        //passed = checkSize(11, i);
 
         printTestStatus(passed);
 

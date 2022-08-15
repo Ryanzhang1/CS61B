@@ -114,11 +114,11 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
-        last = minusone(last);
-        size -= 1;
         if (size <= length / 4 && length >= 16) {
             resizeshrink();
         }
+        last = minusone(last);
+        size -= 1;
         return array[last];
     }
 
@@ -127,9 +127,8 @@ public class ArrayDeque<T> {
             return null;
         }
         int i = first;
-        while (index > 0) {
-            i = plusone(i, length);
-            index -= 1;
+        for(int j=0;j<index;j++){
+            i=plusone(i,length);
         }
         return array[i];
     }
