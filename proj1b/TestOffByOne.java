@@ -14,9 +14,10 @@ public class TestOffByOne {
         assertTrue(obo.equalChars('a', 'b'));
         assertTrue(obo.equalChars('r', 'q'));
         assertTrue(obo.equalChars('&', '%'));
-        assertFalse(obo.equalChars('a', 'e'));
-        assertFalse(obo.equalChars('z', 'a'));
+
         assertFalse(obo.equalChars('a', 'a'));
+        assertFalse(obo.equalChars('a', 'z'));
+        assertFalse(obo.equalChars('a', 'e'));
         assertFalse(obo.equalChars(' ', 'a'));
         assertFalse(obo.equalChars('A', 'a'));
 
