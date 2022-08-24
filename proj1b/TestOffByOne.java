@@ -1,4 +1,3 @@
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -14,9 +13,13 @@ public class TestOffByOne {
         CharacterComparator obo = new OffByOne();
         assertTrue(obo.equalChars('a', 'b'));
         assertTrue(obo.equalChars('r', 'q'));
+        assertTrue(obo.equalChars('&', '%'));
         assertFalse(obo.equalChars('a', 'e'));
         assertFalse(obo.equalChars('z', 'a'));
         assertFalse(obo.equalChars('a', 'a'));
+        assertFalse(obo.equalChars(' ', 'a'));
+        assertFalse(obo.equalChars('A', 'a'));
+
     }
 }
 

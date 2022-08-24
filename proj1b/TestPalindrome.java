@@ -19,9 +19,9 @@ public class TestPalindrome {
 
     @Test
     public void testisPalindrome() {
-        OffByOne obo = new OffByOne();
-        assertTrue(palindrome.isPalindrome("noon", obo));
+        assertTrue(palindrome.isPalindrome("noon"));
         assertFalse(palindrome.isPalindrome("food"));
+        assertFalse(palindrome.isPalindrome("ababbaa"));
         assertTrue(palindrome.isPalindrome(""));
         assertTrue(palindrome.isPalindrome("a"));
     }

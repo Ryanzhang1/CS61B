@@ -9,7 +9,7 @@ public class Palindrome {
         return ans;
     }
 
-    public boolean isPalindromehelper(Deque q) {
+    private boolean isPalindromehelper(Deque q) {
         while (q.size() > 1) {
             if (q.removeFirst() != q.removeLast()) {
                 return false;
@@ -19,6 +19,9 @@ public class Palindrome {
     }
 
     public boolean isPalindrome(String word) {
+        if (word.length() == 0 || word == null) {
+            return true;
+        }
         Deque ans = wordToDeque(word);
         return isPalindromehelper(ans);
     }
