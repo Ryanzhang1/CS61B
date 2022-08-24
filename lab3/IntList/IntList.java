@@ -243,12 +243,14 @@ public class IntList {
             return A;
         }
         IntList i = null;
+        IntList j;
         while (A != null) {
             i = new IntList(A.first, i);
-            A = A.rest;
+            j = A.rest;
+            A.rest = null;
+            A = j;
         }
-        A=i;
-        return A;
+        return i;
     }
 }
 
