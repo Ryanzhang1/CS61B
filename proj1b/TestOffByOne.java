@@ -10,15 +10,14 @@ public class TestOffByOne {
 
     @Test
     public void testoffByOne() {
-        CharacterComparator obo = new OffByOne();
-        assertTrue(obo.equalChars('a', 'b'));
-        assertTrue(obo.equalChars('r', 'q'));
-        assertTrue(obo.equalChars('&', '%'));
+        assertTrue(offByOne.equalChars('a', 'b'));
+        assertTrue(offByOne.equalChars('r', 'q'));
+        assertTrue(offByOne.equalChars('&', '%'));
 
-        assertFalse(obo.equalChars('a', 'a'));
-        assertFalse(obo.equalChars('a', 'z'));
-        assertFalse(obo.equalChars('a', 'e'));
-        assertFalse(obo.equalChars('a', 'A'));
+        assertFalse(offByOne.equalChars('a', 'a'));
+        assertFalse(offByOne.equalChars('a', 'z'));
+        assertFalse(offByOne.equalChars('a', 'e'));
+        assertFalse(offByOne.equalChars('a', 'A'));
 
     }
 }
