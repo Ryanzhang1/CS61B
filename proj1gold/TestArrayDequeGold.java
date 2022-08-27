@@ -32,18 +32,22 @@ public class TestArrayDequeGold {
                         log = log + "addFirst(" + addNumber + ")\n";
                         testArray.addFirst(addNumber);
                         stdArray.addFirst(addNumber);
+                        break;
                     case 1:
                         log = log + "addLast(" + addNumber + ")\n";
                         testArray.addLast(addNumber);
                         stdArray.addLast(addNumber);
+                        break;
                     case 2:
                         log = log + "removeFirst()\n";
                         testMoveNumber = testArray.removeFirst();
                         StdMoveNumber = stdArray.removeFirst();
+                        break;
                     case 3:
                         log = log + "removeLast()\n";
                         testMoveNumber = testArray.removeLast();
                         StdMoveNumber = stdArray.removeLast();
+                        break;
                 }
                 //System.out.println(addNumber);
                 assertEquals(log,StdMoveNumber, testMoveNumber);
