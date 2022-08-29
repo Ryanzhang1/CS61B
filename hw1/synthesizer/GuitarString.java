@@ -51,7 +51,7 @@ public class GuitarString {
         //       the average of the two multiplied by the DECAY factor.
         //       Do not call StdAudio.play().
         double frontNumber = buffer.dequeue();
-        double average = (frontNumber + buffer.peek()) * DECAY;
+        double average = (frontNumber + buffer.peek()) * DECAY * 0.5;
         buffer.enqueue(average);
     }
 
