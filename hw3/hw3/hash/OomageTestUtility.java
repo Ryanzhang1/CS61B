@@ -18,10 +18,11 @@ public class OomageTestUtility {
             int bucketNum = (o.hashCode() & 0x7FFFFFFF) % M;
             bukects[bucketNum] += 1;
         }
-        for (int bucket : bukects)
+        for (int bucket : bukects) {
             if (bucket < (oomages.size() / 50) || bucket > (oomages.size()) / 2.5) {
                 return false;
             }
+        }
         return true;
     }
 }
