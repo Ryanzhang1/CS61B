@@ -120,6 +120,9 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
      * Bubbles down the node currently at the given index.
      */
     private void sink(int index) {
+        if (!inBounds(index)) {
+            return;
+        }
         // Throws an exception if index is invalid. DON'T CHANGE THIS LINE.
         validateSinkSwimArg(index);
 
@@ -446,6 +449,30 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
             assertEquals(expected[i], pq.removeMin());
             i += 1;
         }
+    }
+    @Test
+    public void testChangePriority() {
+        ArrayHeap<String> pq = new ArrayHeap<>();
+        pq.size = 7;
+        for (int i = 1; i <= 7; i += 1) {
+            pq.contents[i] = new ArrayHeap<String>.Node("x" + i, i);
+        }
+        // Change root's priority to a large value.
+        pq.contents[1].myPriority = 10;
+        System.out.println("PQ before sinking:");
+        System.out.println(pq);
+
+        // Sink the root.
+        pq.changePriority("x10",10);
+        System.out.println("PQ after changePriority:");
+        System.out.println(pq);
+        assertEquals("x2", pq.contents[1].myItem);
+        assertEquals("x4", pq.contents[2].myItem);
+        assertEquals("x3", pq.contents[3].myItem);
+        assertEquals("x1", pq.contents[4].myItem);
+        assertEquals("x5", pq.contents[5].myItem);
+        assertEquals("x6", pq.contents[6].myItem);
+        assertEquals("x7", pq.contents[7].myItem);
     }
 
 }
