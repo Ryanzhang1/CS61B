@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.Assert.*;
 
 /**
@@ -42,6 +44,9 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
      * Returns the index of the node that is the parent of the node at i.
      */
     private static int parentIndex(int i) {
+        if (i == 1) {
+            throw new IllegalArgumentException("root node has no parent");
+        }
         return i / 2;
     }
 
@@ -107,7 +112,7 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
 
         while (index > 1 && min(index, parentIndex(index)) == index) {
             swap(index, parentIndex(index));
-            index /= 2;
+            index = parentIndex(index);
         }
     }
 
@@ -142,7 +147,7 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
             resize(contents.length * 2);
         }
         this.size++;
-        this.contents[size] = new ArrayHeap<T>.Node(item, priority);
+        this.contents[size] = new Node(item, priority);
         swim(size);
     }
 
@@ -152,6 +157,9 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
      */
     @Override
     public T peek() {
+        if (size == 0) {
+            throw new NoSuchElementException("heap is empty");
+        }
         return getNode(1).item();
     }
 
@@ -170,6 +178,7 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
         swap(1, size);
         size--;
         sink(1);
+        contents[size + 1] = null;
         return min;
     }
 
@@ -194,7 +203,7 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
     public void changePriority(T item, double priority) {
         int i = 1;
         while (inBounds(i)) {
-            if (this.contents[i].item() == item) {
+            if (this.contents[i].item().equals(item)) {
                 this.contents[i].myPriority = priority;
                 break;
             }
