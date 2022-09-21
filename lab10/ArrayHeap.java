@@ -207,7 +207,10 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
                 this.contents[i].myPriority = priority;
                 break;
             }
-            size++;
+            i++;
+        }
+        if (i == size + 1) {
+            throw new IllegalArgumentException("no such item in the heap");
         }
         swim(i);
         sink(i);
