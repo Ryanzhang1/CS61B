@@ -3,7 +3,6 @@ package hw4.puzzle;
 import edu.princeton.cs.algs4.MinPQ;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class Solver {
@@ -33,7 +32,8 @@ public class Solver {
 
         @Override
         public int compareTo(SearchNode o) {
-            return this.move + this.state.estimatedDistanceToGoal() - o.move - o.state.estimatedDistanceToGoal();
+            return this.move + this.state.estimatedDistanceToGoal()
+                    - o.move - o.state.estimatedDistanceToGoal();
         }
     }
 

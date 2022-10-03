@@ -2,7 +2,6 @@ package hw4.puzzle;
 
 import edu.princeton.cs.algs4.Queue;
 
-import java.util.Arrays;
 
 public class Board implements WorldState {
 
@@ -92,7 +91,7 @@ public class Board implements WorldState {
         int sum = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (tileAt(i, j) != trans(i, j)) {
+                if (tileAt(i, j) != trans(i, j) && tileAt(i, j) != 0) {
                     sum += 1;
                 }
             }
@@ -132,7 +131,9 @@ public class Board implements WorldState {
               position as y's*/
     @Override
     public boolean equals(Object y) {
-        if (y == this) return true;
+        if (y == this) {
+            return true;
+        }
         if (y == null || this.getClass() != y.getClass()) {
             return false;
         }
